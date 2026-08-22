@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "titulo": "oscar",
+    "descripcion": "programador de pichulas",
+    "categoria": "Estudio",
+    "completado": true
+  }
+]
