@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>{{WelcomeMessage}}</h1>
+
+    <h2>Lista de Estudiantes</h2>
+
+    <ul>
+        {{#each students}}
+        <li>
+            <strong>{{this.nombre}}</strong>
+            - Nota: {{this.nota}}
+
+            {{#if (gte this.nota 15)}}
+            <span style="color: green;">✔ Excelente</span>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>
