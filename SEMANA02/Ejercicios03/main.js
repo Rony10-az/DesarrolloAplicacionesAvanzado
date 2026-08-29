@@ -46,7 +46,19 @@ const server = http.createServer((req, res) => {
         });
 
         req.on("end", () => {
-            const newStudent = repo.create(JSON.parse(body));
+            let data;
+            try {
+                data = JSON.parse(body);
+            } catch {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "JSON inválido" }));
+            }
+            if (typeof data !== "object" || data === null) {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "Body debe ser un objeto" }));
+            }
+
+            const newStudent = repo.create(data);
 
             res.statusCode = 201;
             res.end(JSON.stringify(newStudent));
@@ -67,7 +79,19 @@ const server = http.createServer((req, res) => {
         });
 
         req.on("end", () => {
-            const updatedStudent = repo.update(id, JSON.parse(body));
+            let data;
+            try {
+                data = JSON.parse(body);
+            } catch {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "JSON inválido" }));
+            }
+            if (typeof data !== "object" || data === null) {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "Body debe ser un objeto" }));
+            }
+
+            const updatedStudent = repo.update(id, data);
 
             if (updatedStudent) {
                 res.statusCode = 200;
@@ -108,7 +132,19 @@ const server = http.createServer((req, res) => {
         });
 
         req.on("end", () => {
-            const { status } = JSON.parse(body);
+            let data;
+            try {
+                data = JSON.parse(body);
+            } catch {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "JSON inválido" }));
+            }
+            if (typeof data !== "object" || data === null) {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "Body debe ser un objeto" }));
+            }
+
+            const { status } = data;
 
             const result = repo.listByStatus(status);
 
@@ -129,7 +165,19 @@ const server = http.createServer((req, res) => {
         });
 
         req.on("end", () => {
-            const { gpa } = JSON.parse(body);
+            let data;
+            try {
+                data = JSON.parse(body);
+            } catch {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "JSON inválido" }));
+            }
+            if (typeof data !== "object" || data === null) {
+                res.statusCode = 400;
+                return res.end(JSON.stringify({ error: "Body debe ser un objeto" }));
+            }
+
+            const { gpa } = data;
 
             const result = repo.listByGrade(gpa);
 
