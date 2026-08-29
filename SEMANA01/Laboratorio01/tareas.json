@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "titulo": "Base de Datos (MYSQL)",
+    "descripcion": "Sistema de guardado de datos relacional.",
+    "categoria": "Estudio",
+    "completado": true
+  },
+  {
+    "id": 2,
+    "titulo": "Node.js",
+    "descripcion": "uso de javascript con npm.",
+    "categoria": "Trabajo",
+    "completado": false
+  },
+  {
+    "id": 3,
+    "titulo": "script",
+    "descripcion": "node",
+    "categoria": "Trabajo",
+    "completado": false
+  }
+]

@@ -3,7 +3,6 @@ let id = 1;
 
 const categorias = ["Estudio", "Trabajo", "Personal"];
 
-// ➕ AGREGAR
 function agregarTarea(titulo, descripcion, categoria) {
     if (!categorias.includes(categoria)) {
         console.log("Categoría inválida");
@@ -22,7 +21,6 @@ function agregarTarea(titulo, descripcion, categoria) {
     console.log("Tarea agregada correctamente");
 }
 
-// 📋 LISTAR
 function listarTareas() {
     console.log("\nLista de tareas:");
 
@@ -33,7 +31,6 @@ function listarTareas() {
     });
 }
 
-// ✔️ COMPLETAR
 function completarTarea(idtarea) {
     const tarea = tareas.find(t => t.id === idtarea);
 
@@ -46,7 +43,7 @@ function completarTarea(idtarea) {
     console.log("Tarea completada correctamente");
 }
 
-// 📂 FILTRAR POR CATEGORÍA
+//  FILTRAR POR CATEGORÍA
 function listarTareasPorCategoria(categoria) {
     const filtradas = tareas.filter(t => t.categoria === categoria);
 
@@ -59,10 +56,10 @@ function listarTareasPorCategoria(categoria) {
     });
 }
 
-// 🧪 PRUEBA
-agregarTarea("Estudiar para el examen", "Repasar apuntes", "Estudio");
-agregarTarea("Reunión de trabajo", "Equipo de proyecto", "Trabajo");
-agregarTarea("Comprar víveres", "Ir al mercado", "Personal");
+//  PRUEBA
+agregarTarea("\nEstudiar para el examen", "Repasar apuntes", "Estudio");
+agregarTarea("\nReunión de trabajo", "Equipo de proyecto", "Trabajo");
+agregarTarea("\nComprar víveres", "Ir al mercado", "Personal");
 
 listarTareas();
 
