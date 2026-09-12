@@ -1,41 +1,65 @@
 <%- include('partials/header') %>
 
-    <div class="section">
-        <div class="center-align">
-            <i class="material-icons hero-icon">mail</i>
-            <h4>Contacto</h4>
-            <p class="grey-text text-darken-1">Déjanos tu mensaje y te responderemos pronto.</p>
-        </div>
+<%- include('partials/pageHero', {
+    heroTitle: 'CONTACTO',
+    heroSubtitle: 'Escríbenos tus dudas, ideas o comentarios sobre la encuesta.',
+    heroImage: '/images/hero/noche.jpg',
+    heroIcon: 'mail'
+}) %>
 
+<div class="container">
+    <div class="section">
         <div class="row">
-            <form class="col s12 m8 offset-m2 card app-card" action="/contact" method="POST">
-                <div class="card-content">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">person</i>
-                            <input id="name" name="name" type="text" class="validate" required>
-                            <label for="name">Nombre</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">email</i>
-                            <input id="email" name="email" type="email" class="validate" required>
-                            <label for="email">Correo electrónico</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">message</i>
-                            <textarea id="mensaje" name="mensaje" class="materialize-textarea" required></textarea>
-                            <label for="mensaje">Mensaje</label>
-                        </div>
+            <div class="col s12 m7">
+                <form class="content-card reveal" action="/contact" method="POST">
+                    <h2 class="section-title small">Envíanos un mensaje</h2>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">person</i>
+                        <input id="name" name="name" type="text" class="validate" required>
+                        <label for="name">Nombre</label>
                     </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" name="email" type="email" class="validate" required>
+                        <label for="email">Correo electrónico</label>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">message</i>
+                        <textarea id="mensaje" name="mensaje" class="materialize-textarea" required></textarea>
+                        <label for="mensaje">Mensaje</label>
+                    </div>
+
+                    <div class="right-align">
+                        <button type="submit" class="btn-large waves-effect app-btn-gold">
+                            Enviar <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col s12 m5">
+                <div class="content-card reveal" style="transition-delay:.12s">
+                    <h2 class="section-title small">Otros canales</h2>
+                    <ul class="tech-list">
+                        <li><i class="material-icons">school</i><span>Tecsup — Desarrollo de Aplicaciones Web Avanzado</span></li>
+                        <li><i class="material-icons">emoji_events</i><span>¿Quieres proponer un candidato? Cuéntanoslo.</span></li>
+                        <li><i class="material-icons">schedule</i><span>Respondemos los mensajes en la sección Admin.</span></li>
+                    </ul>
                 </div>
-                <div class="card-action right-align">
-                    <button type="submit" class="btn waves-effect waves-light app-btn">
-                        Enviar
-                        <i class="material-icons right">send</i>
-                    </button>
+
+                <div class="content-card reveal" style="transition-delay:.24s">
+                    <h2 class="section-title small">¿Ya votaste?</h2>
+                    <p>Tu opinión suma al ranking en vivo de la encuesta.</p>
+                    <a href="/balon-de-oro" class="btn waves-effect app-btn-gold">
+                        Votar <i class="material-icons right">how_to_vote</i>
+                    </a>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
+</div>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>

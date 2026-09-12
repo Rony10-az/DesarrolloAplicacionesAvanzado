@@ -1,12 +1,22 @@
 <%- include('partials/header') %>
 
-<div class="section center-align">
-    <i class="material-icons app-error-code">error_outline</i>
-    <h3 class="red-text">404 - Página no encontrada</h3>
-    <p>La ruta <strong><%= url %></strong> no existe en este sitio.</p>
-    <a href="/" class="btn waves-effect waves-light app-btn">
-        <i class="material-icons left">home</i>Volver al inicio
-    </a>
+<%- include('partials/pageHero', {
+    heroTitle: '404',
+    heroSubtitle: 'Esta jugada se fue por encima del travesaño.',
+    heroImage: '/images/hero/noche.jpg',
+    heroIcon: 'sports_soccer'
+}) %>
+
+<div class="container">
+    <div class="section center-align">
+        <div class="content-card reveal">
+            <h2 class="section-title small">Página no encontrada</h2>
+            <p>La ruta <strong class="route-badge"><%= url %></strong> no existe en este sitio.</p>
+            <a href="/" class="btn-large waves-effect app-btn-gold">
+                <i class="material-icons left">home</i>Volver al inicio
+            </a>
+        </div>
+    </div>
 </div>
 
 <%- include('partials/footer') %>

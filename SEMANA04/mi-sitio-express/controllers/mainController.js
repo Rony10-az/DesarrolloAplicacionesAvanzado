@@ -1,5 +1,6 @@
 // Base de datos en memoria
 const messages = [];
+
 const contact = (req, res) => {
     res.render("contact", { title: "Contacto" });
 };

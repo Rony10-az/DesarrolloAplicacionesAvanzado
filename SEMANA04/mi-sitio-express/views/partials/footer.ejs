@@ -2,17 +2,85 @@
 
     <footer class="page-footer app-footer">
         <div class="container">
-            <span class="grey-text text-lighten-4">
-                &copy; <%= new Date().getFullYear() %> Mi Sitio Express — Desarrollo de Aplicaciones Web Avanzado
-            </span>
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5 class="footer-brand">
+                        <i class="material-icons">sports_soccer</i> Balón de Oro
+                    </h5>
+                    <p class="footer-text">
+                        Encuesta de predicción del Balón de Oro. Proyecto del curso de
+                        Desarrollo de Aplicaciones Web Avanzado.
+                    </p>
+                </div>
+                <div class="col s12 m3">
+                    <h6 class="footer-title">Navegación</h6>
+                    <ul class="footer-links">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/about">Acerca de</a></li>
+                        <li><a href="/balon-de-oro">Votación</a></li>
+                        <li><a href="/contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col s12 m3">
+                    <h6 class="footer-title">Créditos</h6>
+                    <p class="footer-text small">
+                        Fotografías de jugadores, banderas y estadios: Wikimedia Commons,
+                        bajo licencias libres (CC / dominio público).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; <%= new Date().getFullYear() %> Mi Sitio Express — Rony Quintana
+            </div>
         </div>
     </footer>
 
     <script src="/vendor/materialize/js/materialize.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var sidenavs = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(sidenavs);
+            M.Sidenav.init(document.querySelectorAll('.sidenav'));
+            M.FormSelect.init(document.querySelectorAll('select'));
+
+            // Revela las secciones con animación al entrar en pantalla
+            var revealables = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                revealables.forEach(function (el) { observer.observe(el); });
+            } else {
+                revealables.forEach(function (el) { el.classList.add('revealed'); });
+            }
+
+            // Anima las barras de estadísticas hasta su valor real
+            var bars = document.querySelectorAll('.stat-bar-fill');
+            setTimeout(function () {
+                bars.forEach(function (bar) {
+                    bar.style.width = (bar.dataset.percentage || 0) + '%';
+                });
+            }, 250);
+
+            // Cuenta ascendente de los números
+            document.querySelectorAll('.count-up').forEach(function (el) {
+                var target = Number(el.dataset.target || 0);
+                var duration = 1200;
+                var start = null;
+
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    var progress = Math.min((timestamp - start) / duration, 1);
+                    el.textContent = Math.round(progress * target);
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
         });
     </script>
 </body>

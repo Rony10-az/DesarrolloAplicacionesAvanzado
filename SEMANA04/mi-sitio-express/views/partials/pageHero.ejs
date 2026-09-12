@@ -1,0 +1,12 @@
+<section class="page-hero" style="background-image: url('<%= heroImage %>')">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+        <i class="material-icons page-hero-icon"><%= heroIcon %></i>
+        <h1 class="display-title">
+            <% heroTitle.split('').forEach(function (ch, i) { %><% if (ch === ' ') { %><span class="letter">&nbsp;</span><% } else { %><span class="letter" style="animation-delay: <%= (i * 0.05).toFixed(2) %>s"><%= ch %></span><% } %><% }); %>
+        </h1>
+        <p class="display-subtitle">
+            <% heroSubtitle.split(' ').forEach(function (word, i) { %><span class="word" style="animation-delay: <%= (0.4 + i * 0.06).toFixed(2) %>s"><%= word %></span> <% }); %>
+        </p>
+    </div>
+</section>

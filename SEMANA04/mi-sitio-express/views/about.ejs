@@ -1,19 +1,72 @@
 <%- include('partials/header') %>
 
-<div class="section center-align">
-    <i class="material-icons hero-icon">groups</i>
-    <h4>Sobre Nosotros</h4>
-    <div class="card app-card">
-        <div class="card-content left-align">
-            <p>
-                Somos un equipo de estudiantes del curso de Desarrollo de Aplicaciones Web Avanzado,
-                aprendiendo a construir sitios con Node.js, Express, EJS y Material Design.
-            </p>
+<%- include('partials/pageHero', {
+    heroTitle: 'ACERCA DE',
+    heroSubtitle: 'Un proyecto de Express, EJS y Material Design con temática del Balón de Oro.',
+    heroImage: '/images/hero/maracana.jpg',
+    heroIcon: 'groups'
+}) %>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="content-card reveal">
+                    <h2 class="section-title small">El proyecto</h2>
+                    <p>
+                        Este sitio nace como parte del curso de <strong>Desarrollo de Aplicaciones Web
+                        Avanzado</strong>. La idea fue construir una aplicación completa con Node.js y
+                        Express, separando rutas, controladores y vistas, y darle un diseño propio
+                        alrededor de una pregunta que todos los aficionados se hacen cada año:
+                        ¿quién ganará el Balón de Oro?
+                    </p>
+                    <p>
+                        Los votos se guardan en memoria del servidor y alimentan en tiempo real el
+                        ranking y las estadísticas de la sección de votación.
+                    </p>
+                    <a href="/balon-de-oro" class="btn waves-effect app-btn-gold">
+                        Ir a la votación <i class="material-icons right">arrow_forward</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col s12 m5">
+                <div class="content-card reveal" style="transition-delay:.12s">
+                    <h2 class="section-title small">Tecnología</h2>
+                    <ul class="tech-list">
+                        <li><i class="material-icons">dns</i><span><strong>Node.js + Express</strong> — servidor y rutas</span></li>
+                        <li><i class="material-icons">code</i><span><strong>EJS</strong> — vistas y parciales reutilizables</span></li>
+                        <li><i class="material-icons">palette</i><span><strong>Materialize</strong> — Material Design</span></li>
+                        <li><i class="material-icons">storage</i><span><strong>Memoria</strong> — almacenamiento de votos y mensajes</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="content-card center-align reveal">
+                    <i class="material-icons about-icon">route</i>
+                    <h3>5 rutas</h3>
+                    <p>Inicio, Acerca de, Votación, Contacto y Admin, más una página 404 personalizada.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="content-card center-align reveal" style="transition-delay:.12s">
+                    <i class="material-icons about-icon">view_module</i>
+                    <h3>MVC</h3>
+                    <p>Rutas, controladores y vistas separados en carpetas independientes.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="content-card center-align reveal" style="transition-delay:.24s">
+                    <i class="material-icons about-icon">devices</i>
+                    <h3>Responsive</h3>
+                    <p>Diseño adaptable a escritorio, tablet y móvil con la grilla de Materialize.</p>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="/" class="btn-flat waves-effect app-link">
-        <i class="material-icons left">arrow_back</i>Volver al Inicio
-    </a>
 </div>
 
 <%- include('partials/footer') %>

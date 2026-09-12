@@ -1,15 +1,111 @@
 <%- include('partials/header') %>
 
-<div class="section center-align">
-    <i class="material-icons hero-icon">waving_hand</i>
-    <h4>Bienvenido a la Página de Inicio</h4>
-    <p class="grey-text text-darken-1">
-        Este es el sitio construido con Express, EJS y Materialize (Material Design).
-    </p>
-    <a href="/about" class="btn waves-effect waves-light app-btn">
-        Conocer más
-        <i class="material-icons right">arrow_forward</i>
+<section class="hero" aria-label="Balón de Oro">
+    <div class="hero-backgrounds">
+        <div class="hero-bg active" style="background-image: url('/images/hero/campnou.jpg')"></div>
+        <div class="hero-bg" style="background-image: url('/images/hero/allianz.jpg')"></div>
+        <div class="hero-bg" style="background-image: url('/images/hero/noche.jpg')"></div>
+        <div class="hero-bg" style="background-image: url('/images/hero/maracana.jpg')"></div>
+    </div>
+    <div class="hero-color-overlay"></div>
+
+    <div class="container hero-inner">
+        <span class="hero-kicker">La gran duda del año</span>
+
+        <h1 class="hero-title">
+            <% "BALÓN DE ORO".split('').forEach(function (ch, i) { %><% if (ch === ' ') { %><span class="letter">&nbsp;</span><% } else { %><span class="letter" style="animation-delay: <%= (i * 0.06).toFixed(2) %>s"><%= ch %></span><% } %><% }); %>
+        </h1>
+
+        <p class="hero-subtitle">
+            <% "¿Quién levantará el trofeo más deseado del fútbol?".split(' ').forEach(function (word, i) { %><span class="word" style="animation-delay: <%= (0.9 + i * 0.07).toFixed(2) %>s"><%= word %></span> <% }); %>
+        </p>
+
+        <div class="hero-actions">
+            <a href="/balon-de-oro" class="btn-large waves-effect app-btn-gold">
+                Votar ahora
+                <i class="material-icons right">how_to_vote</i>
+            </a>
+            <a href="/balon-de-oro#estadisticas" class="btn-large waves-effect app-btn-ghost">
+                Ver estadísticas
+                <i class="material-icons right">bar_chart</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-dots">
+        <button class="hero-dot active" data-slide="0" aria-label="Fondo 1"></button>
+        <button class="hero-dot" data-slide="1" aria-label="Fondo 2"></button>
+        <button class="hero-dot" data-slide="2" aria-label="Fondo 3"></button>
+        <button class="hero-dot" data-slide="3" aria-label="Fondo 4"></button>
+    </div>
+
+    <a href="#destacados" class="hero-scroll" aria-label="Bajar">
+        <i class="material-icons">expand_more</i>
     </a>
+</section>
+
+<div class="container" id="destacados">
+    <div class="section">
+        <h2 class="section-title reveal">Explora el sitio</h2>
+
+        <div class="row">
+            <div class="col s12 m4">
+                <a href="/balon-de-oro" class="feature-card reveal">
+                    <i class="material-icons feature-icon">emoji_events</i>
+                    <h3>Votación</h3>
+                    <p>Elige a tu candidato y mira en vivo cómo se mueve la encuesta.</p>
+                    <span class="feature-link">Participar <i class="material-icons">arrow_forward</i></span>
+                </a>
+            </div>
+            <div class="col s12 m4">
+                <a href="/about" class="feature-card reveal" style="transition-delay:.12s">
+                    <i class="material-icons feature-icon">groups</i>
+                    <h3>Acerca de</h3>
+                    <p>Conoce el proyecto, la tecnología y el equipo detrás del sitio.</p>
+                    <span class="feature-link">Conocer más <i class="material-icons">arrow_forward</i></span>
+                </a>
+            </div>
+            <div class="col s12 m4">
+                <a href="/contact" class="feature-card reveal" style="transition-delay:.24s">
+                    <i class="material-icons feature-icon">mail</i>
+                    <h3>Contacto</h3>
+                    <p>Envíanos tus dudas, ideas o comentarios sobre la encuesta.</p>
+                    <span class="feature-link">Escribir <i class="material-icons">arrow_forward</i></span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var backgrounds = document.querySelectorAll('.hero-bg');
+        var dots = document.querySelectorAll('.hero-dot');
+        var current = 0;
+        var intervalId;
+
+        function showSlide(index) {
+            backgrounds.forEach(function (bg, i) { bg.classList.toggle('active', i === index); });
+            dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+            current = index;
+        }
+
+        function startAutoplay() {
+            intervalId = setInterval(function () {
+                showSlide((current + 1) % backgrounds.length);
+            }, 6000);
+        }
+
+        dots.forEach(function (dot, i) {
+            dot.addEventListener('click', function () {
+                showSlide(i);
+                clearInterval(intervalId);
+                startAutoplay();
+            });
+        });
+
+        startAutoplay();
+    });
+</script>
 
 <%- include('partials/footer') %>

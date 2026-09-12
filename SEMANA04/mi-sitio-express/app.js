@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 const mainRoutes = require("./routes/mainRoutes");
 app.use("/", mainRoutes);
 
+const ballonDorRoutes = require("./routes/ballonDorRoutes");
+app.use("/", ballonDorRoutes);
+
 // Middleware 404 - cuando no se encuentra la ruta
 app.use((req, res, next) => {
     res.status(404).render("notFound", { title: "Error 404", url: req.originalUrl });
