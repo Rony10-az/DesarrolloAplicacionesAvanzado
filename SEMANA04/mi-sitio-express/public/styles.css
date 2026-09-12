@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Tema Material Design — variables y ajustes sobre Materialize
+   ========================================================================== */
+:root {
+    --md-primary: #1a73e8;
+    --md-primary-dark: #0d47a1;
+    --md-accent: #ff4081;
+    --md-surface: #ffffff;
+    --md-background: #f5f6f8;
+    --md-on-primary: #ffffff;
+    --md-text: #212121;
+    --md-text-secondary: #5f6368;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--md-background);
+    color: var(--md-text);
+}
+
+main.page-content {
+    flex: 1 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Navbar */
+.app-navbar {
+    background-color: var(--md-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.app-navbar .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: 1.5rem;
+}
+
+.app-navbar .brand-logo i {
+    font-size: 1.6rem;
+}
+
+.app-navbar ul a:hover {
+    background-color: var(--md-primary-dark);
+}
+
+.sidenav li > a {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+/* Tarjetas y secciones */
+.hero-icon {
+    font-size: 3.5rem;
+    color: var(--md-primary);
+    margin-bottom: .5rem;
+}
+
+.app-card {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .08);
+    border-radius: 6px;
+    text-align: left;
+}
+
+.app-empty {
+    background-color: var(--md-surface);
+    color: var(--md-text-secondary);
+}
+
+.app-empty i {
+    color: var(--md-text-secondary);
+    margin-bottom: .5rem;
+}
+
+.app-badge {
+    background-color: var(--md-accent) !important;
+}
+
+.app-message-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Página de error 404 */
+.app-error-code {
+    font-size: 6rem;
+    color: var(--md-accent);
+    margin-bottom: 0;
+}
+
+/* Botones y enlaces */
+.app-btn {
+    background-color: var(--md-primary);
+}
+
+.app-btn:hover {
+    background-color: var(--md-primary-dark);
+}
+
+.app-link {
+    color: var(--md-primary) !important;
+}
+
+/* Footer */
+.app-footer {
+    background-color: var(--md-primary-dark);
+    flex-shrink: 0;
+}

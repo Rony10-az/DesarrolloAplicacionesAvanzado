@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+<div class="section">
+    <div class="center-align">
+        <i class="material-icons hero-icon">admin_panel_settings</i>
+        <h4>Panel de Administración</h4>
+        <p class="grey-text text-darken-1">
+            Mensajes recibidos desde el formulario de contacto
+            <span class="new badge app-badge" data-badge-caption="mensajes"><%= messages.length %></span>
+        </p>
+    </div>
+
+    <% if (messages.length === 0) { %>
+        <div class="card-panel app-empty center-align">
+            <i class="material-icons medium">inbox</i>
+            <p>Aún no hay mensajes.</p>
+        </div>
+    <% } else { %>
+        <div class="row">
+            <% messages.forEach(function (msg, index) { %>
+                <div class="col s12 m6">
+                    <div class="card app-card">
+                        <div class="card-content">
+                            <span class="card-title">
+                                <i class="material-icons left">person</i><%= msg.name %>
+                            </span>
+                            <p class="grey-text">
+                                <i class="material-icons tiny left">email</i><%= msg.email %>
+                            </p>
+                            <p class="app-message-text"><%= msg.mensaje %></p>
+                        </div>
+                        <div class="card-action">
+                            <span class="grey-text">#<%= index + 1 %></span>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>
